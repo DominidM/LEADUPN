@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 500px; margin: 40px auto; padding: 20px; }
+        .categoria { font-size: 1.5em; font-weight: bold; color: #2c7be5; margin: 20px 0; }
+        a { color: #2c7be5; }
+    </style>
+</head>
+<body>
+    <h2>Resultado para {{ persona.nombre }}</h2>
+    <p>Categoría asignada:</p>
+    <div class="categoria">{{ persona.categoria }}</div>
+    <br>
+    <a href="/">← Clasificar otra persona</a>
+</body>
+</html>
