@@ -1,0 +1,56 @@
+{% extends "clasificador/base.html" %}
+{% block content %}
+<div class="card">
+    <h2>📋 Registros ingresados</h2>
+    <p class="subtitle">Total: {{ personas.count }} persona(s)</p>
+
+    {% if personas %}
+    <div style="overflow-x:auto;">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Ingresos</th>
+                    <th>Deudas</th>
+                    <th>Empleo</th>
+                    <th>Salud</th>
+                    <th>Categoría</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in personas %}
+                <tr>
+                    <td>{{ p.id }}</td>
+                    <td>{{ p.nombre }}</td>
+                    <td>{{ p.edad }}</td>
+                    <td>S/ {{ p.ingresos }}</td>
+                    <td>S/ {{ p.deudas }}</td>
+                    <td>{% if p.tiene_empleo %}✅{% else %}❌{% endif %}</td>
+                    <td>{{ p.condicion_salud }}</td>
+                    <td>
+                        {% if p.categoria == "Riesgo Crédito" %}
+                            <span class="badge badge-credito">{{ p.categoria }}</span>
+                        {% elif p.categoria == "Riesgo Salud" %}
+                            <span class="badge badge-salud">{{ p.categoria }}</span>
+                        {% elif p.categoria == "Riesgo Laboral" %}
+                            <span class="badge badge-laboral">{{ p.categoria }}</span>
+                        {% else %}
+                            <span class="badge badge-supply">{{ p.categoria }}</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+        <p style="color:#718096; text-align:center; padding:30px;">
+            Aún no hay registros ingresados.
+        </p>
+    {% endif %}
+
+    <a href="/" class="back-link">← Ingresar nuevo registro</a>
+</div>
+{% endblock %}
