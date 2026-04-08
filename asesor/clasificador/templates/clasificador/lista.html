@@ -1,7 +1,7 @@
 {% extends "clasificador/base.html" %}
 {% block content %}
 <div class="card">
-    <h2>📋 Registros ingresados</h2>
+    <h2><i class="pi pi-list"></i> Registros ingresados</h2>
     <p class="subtitle">Total: {{ personas.count }} persona(s)</p>
 
     {% if personas %}
@@ -27,7 +27,13 @@
                     <td>{{ p.edad }}</td>
                     <td>S/ {{ p.ingresos }}</td>
                     <td>S/ {{ p.deudas }}</td>
-                    <td>{% if p.tiene_empleo %}✅{% else %}❌{% endif %}</td>
+                    <td>
+                        {% if p.tiene_empleo %}
+                            <i class="pi pi-check-circle" style="color:#38a169;"></i>
+                        {% else %}
+                            <i class="pi pi-times-circle" style="color:#c53030;"></i>
+                        {% endif %}
+                    </td>
                     <td>{{ p.condicion_salud }}</td>
                     <td>
                         {% if p.categoria == "Riesgo Crédito" %}
@@ -47,10 +53,13 @@
     </div>
     {% else %}
         <p style="color:#718096; text-align:center; padding:30px;">
+            <i class="pi pi-inbox" style="font-size:2em; display:block; margin-bottom:8px;"></i>
             Aún no hay registros ingresados.
         </p>
     {% endif %}
 
-    <a href="/" class="back-link">← Ingresar nuevo registro</a>
+    <a href="/" class="back-link">
+        <i class="pi pi-arrow-left"></i> Ingresar nuevo registro
+    </a>
 </div>
 {% endblock %}

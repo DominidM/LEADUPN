@@ -1,12 +1,14 @@
 {% extends "clasificador/base.html" %}
 {% block content %}
 <div class="card">
-    <h2>👤 Clasificador de Riesgo</h2>
+    <h2><i class="pi pi-user"></i> Clasificador de Riesgo</h2>
     <p class="subtitle">Completa los datos para clasificar a la persona</p>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn">Clasificar →</button>
+        <button type="submit" class="btn">
+            <i class="pi pi-send"></i> Clasificar
+        </button>
     </form>
 </div>
 {% endblock %}

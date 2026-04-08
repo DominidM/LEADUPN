@@ -18,12 +18,13 @@
         border-top: 4px solid #2b6cb0;
     }
     .tool-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
-    .tool-card .icon { font-size: 2.5em; margin-bottom: 12px; }
+    .tool-card .icon { font-size: 2em; margin-bottom: 12px; color: #2b6cb0; }
     .tool-card h3 { color: #1a365d; margin-bottom: 6px; font-size: 1em; }
     .tool-card p { color: #718096; font-size: 0.82em; }
     .t2 { border-top-color: #d69e2e; }
+    .t2 .icon { color: #d69e2e; }
     .t3 { border-top-color: #38a169; }
-    .t4 { border-top-color: #805ad5; }
+    .t3 .icon { color: #38a169; }
 </style>
 
 <div class="hero">
@@ -32,20 +33,20 @@
 </div>
 
 <div class="grid">
-    <a href="/clasificador/" class="tool-card">
-        <div class="icon">👤</div>
+    <a href="/" class="tool-card">
+        <div class="icon"><i class="pi pi-user"></i></div>
         <h3>Clasificador de Riesgo</h3>
         <p>Clasifica personas en 4 categorías de riesgo financiero</p>
     </a>
-    <a href="/daisy/" class="tool-card t2">
-        <div class="icon">🎵</div>
-        <h3>Dance Dance Daisy</h3>
-        <p>Distribuye flechas por puntaje usando algoritmo greedy</p>
+    <a href="/lista/" class="tool-card t2">
+        <div class="icon"><i class="pi pi-list"></i></div>
+        <h3>Registros</h3>
+        <p>Lista de todas las personas ingresadas en el sistema</p>
     </a>
-    <a href="/birds/" class="tool-card t3">
-        <div class="icon">🐦</div>
-        <h3>Migratory Birds</h3>
-        <p>Encuentra el tipo de pájaro más frecuente en un arreglo</p>
+    <a href="/admin/" class="tool-card t3">
+        <div class="icon"><i class="pi pi-shield"></i></div>
+        <h3>Admin</h3>
+        <p>Panel de administración con acceso a la base de datos</p>
     </a>
 </div>
 
