@@ -1,20 +1,12 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Asesor Financiero</title>
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 500px; margin: 40px auto; padding: 20px; }
-        input, select { width: 100%; padding: 8px; margin: 6px 0 16px; box-sizing: border-box; }
-        button { background: #2c7be5; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 4px; }
-    </style>
-</head>
-<body>
-    <h2>Clasificador de Riesgo Financiero</h2>
+{% extends "clasificador/base.html" %}
+{% block content %}
+<div class="card">
+    <h2>👤 Clasificador de Riesgo</h2>
+    <p class="subtitle">Completa los datos para clasificar a la persona</p>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Clasificar</button>
+        <button type="submit" class="btn">Clasificar →</button>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}

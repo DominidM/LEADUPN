@@ -1,50 +1,26 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Dance Dance Daisy</title>
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 500px; margin: 40px auto; padding: 20px; }
-        input[type=number] { width: 100%; padding: 8px; margin: 8px 0 16px; box-sizing: border-box; }
-        button { background: #2c7be5; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 4px; }
-        .resultado { margin-top: 20px; background: #f0f4ff; padding: 15px; border-radius: 6px; }
-        .error { color: red; margin-top: 15px; font-weight: bold; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        td, th { padding: 8px 12px; border: 1px solid #ccc; text-align: center; }
-        th { background: #2c7be5; color: white; }
-        a { color: #2c7be5; display: inline-block; margin-top: 20px; }
-    </style>
-</head>
-<body>
+{% extends "clasificador/base.html" %}
+{% block content %}
+<div class="card">
     <h2>🎵 Dance Dance Daisy</h2>
-    <p>Ingresa un puntaje (0 – 100,000) para calcular la distribución de flechas.</p>
-
+    <p class="subtitle">Ingresa un puntaje (0 – 100,000) para calcular la distribución de flechas</p>
     <form method="post">
         {% csrf_token %}
-        <label>Puntaje S:</label>
+        <label>Puntaje S</label>
         <input type="number" name="puntaje" min="0" max="100000" required>
-        <button type="submit">Calcular</button>
+        <button type="submit" class="btn">Calcular →</button>
     </form>
-
     {% if resultado %}
-    <div class="resultado">
+    <div class="resultado-box">
         <h3>Distribución de flechas</h3>
         <table>
             <tr><th>Tipo</th><th>Puntos c/u</th><th>Cantidad</th></tr>
-            <tr><td>Perfect</td><td>1000</td><td>{{ resultado.Perfect }}</td></tr>
-            <tr><td>Great</td><td>100</td><td>{{ resultado.Great }}</td></tr>
-            <tr><td>Good</td><td>10</td><td>{{ resultado.Good }}</td></tr>
-            <tr><td>Bad</td><td>1</td><td>{{ resultado.Bad }}</td></tr>
+            <tr><td>⭐ Perfect</td><td>1000</td><td>{{ resultado.Perfect }}</td></tr>
+            <tr><td>✨ Great</td><td>100</td><td>{{ resultado.Great }}</td></tr>
+            <tr><td>👍 Good</td><td>10</td><td>{{ resultado.Good }}</td></tr>
+            <tr><td>👎 Bad</td><td>1</td><td>{{ resultado.Bad }}</td></tr>
         </table>
     </div>
     {% endif %}
-
-    {% if error %}
-    <p class="error">{{ error }}</p>
-    {% endif %}
-
-    <a href="/">← Volver al clasificador</a>
-</body>
-</html>
-
-
+    {% if error %}<div class="error">{{ error }}</div>{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "clasificador/base.html" %}
+{% block content %}
+
+<style>
+    .hero { text-align: center; margin-bottom: 40px; }
+    .hero h1 { font-size: 2em; color: #1a365d; margin-bottom: 8px; }
+    .hero p { color: #718096; font-size: 1em; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+    .tool-card {
+        background: white;
+        border-radius: 12px;
+        padding: 28px 20px;
+        text-align: center;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.2s, box-shadow 0.2s;
+        border-top: 4px solid #2b6cb0;
+    }
+    .tool-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+    .tool-card .icon { font-size: 2.5em; margin-bottom: 12px; }
+    .tool-card h3 { color: #1a365d; margin-bottom: 6px; font-size: 1em; }
+    .tool-card p { color: #718096; font-size: 0.82em; }
+    .t2 { border-top-color: #d69e2e; }
+    .t3 { border-top-color: #38a169; }
+    .t4 { border-top-color: #805ad5; }
+</style>
+
+<div class="hero">
+    <h1>Asesor Financiero</h1>
+    <p>Herramientas de clasificación y análisis algorítmico</p>
+</div>
+
+<div class="grid">
+    <a href="/clasificador/" class="tool-card">
+        <div class="icon">👤</div>
+        <h3>Clasificador de Riesgo</h3>
+        <p>Clasifica personas en 4 categorías de riesgo financiero</p>
+    </a>
+    <a href="/daisy/" class="tool-card t2">
+        <div class="icon">🎵</div>
+        <h3>Dance Dance Daisy</h3>
+        <p>Distribuye flechas por puntaje usando algoritmo greedy</p>
+    </a>
+    <a href="/birds/" class="tool-card t3">
+        <div class="icon">🐦</div>
+        <h3>Migratory Birds</h3>
+        <p>Encuentra el tipo de pájaro más frecuente en un arreglo</p>
+    </a>
+</div>
+
+{% endblock %}
